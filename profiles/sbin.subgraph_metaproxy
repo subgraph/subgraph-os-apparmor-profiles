@@ -1,0 +1,11 @@
+# Last Modified: Fri Feb  5 16:34:18 2016
+#include <tunables/global>
+
+/sbin/subgraph_metaproxy {
+  #include <abstractions/base>
+
+  /etc/subgraph_metaproxy/subgraph_metaproxy.conf r,
+  /proc/sys/kernel/hostname r,
+  /proc/sys/net/core/somaxconn r,
+
+}
