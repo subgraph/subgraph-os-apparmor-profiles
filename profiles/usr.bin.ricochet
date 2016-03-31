@@ -17,7 +17,6 @@
 
   # Allow TCP connections
   network inet stream,
-  network inet6 stream,
 
   /usr/lib/** mr,
 
@@ -54,6 +53,9 @@
   /var/run/tor/control rw,
   # Allow Ricochet to talk to Tor's SOCKS unix socket
   /var/run/tor/socks rw,
+
+  # Ricochet will create stuff here sometimes
+  /dev/shm/* rw,
 
   # Allow Ricochet to look up all your machine's PII
   # Why does it need this stuff? BAD NEWS BEARS
