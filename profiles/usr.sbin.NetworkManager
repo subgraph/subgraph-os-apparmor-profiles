@@ -38,6 +38,8 @@
   /proc/*/fd/ r,
   /proc/*/net/psched r,
   /proc/*/stat r,
+  /run/NetworkManager w,
+  /run/NetworkManager/* w,
   /run/NetworkManager/private w,
   /run/NetworkManager/private-dhcp w,
   /run/dhclient-*.pid rw,
