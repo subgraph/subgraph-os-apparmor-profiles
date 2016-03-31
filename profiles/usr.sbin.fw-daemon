@@ -1,0 +1,34 @@
+# Last Modified: Fri Feb  5 18:40:49 2016
+#include <tunables/global>
+
+# ------------------------------------------------------------------
+#
+#    Copyleft (C) 2016 Jacob Appelbaum <jacob@appelbaum.net>
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+/usr/sbin/fw-daemon {
+  #include <abstractions/base>
+  #include <abstractions/ubuntu-konsole>
+
+  capability dac_read_search,
+  capability net_admin,
+  capability net_raw,
+
+  /etc/nsswitch.conf r,
+  /etc/passwd r,
+  /etc/protocols r,
+  /proc/ r,
+  /proc/*/fd/ r,
+  /proc/*/net/tcp r,
+  /proc/*/net/udp r,
+  /proc/sys/net/core/somaxconn r,
+  /run/xtables.lock rwk,
+  /sbin/xtables-multi rix,
+  /usr/share/applications/* r,
+  /var/lib/sgfw/sgfw_rules rw,
+}

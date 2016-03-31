@@ -1,0 +1,66 @@
+#include <tunables/global>
+
+/usr/bin/pulseaudio {
+
+    #include <abstractions/base>
+    #include <abstractions/user-tmp>
+    #include <abstractions/pulse>
+    #include <abstractions/nameservice>
+    #include <abstractions/X>
+    #include <abstractions/freedesktop.org>
+
+    /etc/ld.so.* rm,
+    /etc/machine-id r,
+
+    /usr/bin/pulseaudio px,
+
+    /sys/devices/system/cpu/ r,
+    /sys/devices/system/cpu/** r,
+
+    owner @{PROC}/@{pid}/stat r,
+    owner @{PROC}/@{pid}/cmdline r,
+
+    /usr/@{multiarch}lib/pulse-*/modules/* m,
+    /usr/share/pulseaudio/** r,
+
+    /etc/udev/udev.conf r,
+    /run/udev/data/* r,
+
+    /tmp/pulse-* k,
+    /tmp/pulse-*/* k,
+    /run/udev/queue.bin r,
+    /run/systemd/users/* r,
+
+    /usr/lib/pulse-*/modules/*.so rm,
+
+    /var/lib/gdm3/.config/pulse/ rwk,
+    /var/lib/gdm3/.config/pulse/* rwk,
+
+    owner /run/user/*/pulse/* rwk,
+
+    owner @{HOME}/.config/pulse/ rwk,
+    owner @{HOME}/.config/pulse/** rwk,
+    owner @{HOME}/.esd_auth r,
+
+    owner @{PROC}/@{pid}/fd/ r,
+    owner @{PROC}/@{pid}/fd/* r,
+    owner @{PROC}/@{pid}/mountinfo r,
+
+    /sys/bus/ r,
+    /sys/class/ r,
+    /sys/class/sound/ r,
+    /sys/devices/virtual/dmi/id/*_vendor r,
+    /sys/devices/virtual/sound/** r,
+    /sys/devices/*/*/sound/** r,
+    /sys/devices/*/*/*/sound/** r,
+    /dev/input/event* r, # module-mmkbd-evdev
+
+    network tcp,
+    network udp,
+
+    ## Site-local symlinks
+    /etc/core/sys/pulse/* r,
+    /etc/core/sys/asound.conf r,
+    /etc/core/sys/secure/pulse.cookie rk,
+
+}

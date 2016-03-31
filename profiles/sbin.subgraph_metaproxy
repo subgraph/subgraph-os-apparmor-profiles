@@ -1,0 +1,21 @@
+# Last Modified: Fri Feb  5 16:34:18 2016
+#include <tunables/global>
+
+# ------------------------------------------------------------------
+#
+#    Copyleft (C) 2016 Jacob Appelbaum <jacob@appelbaum.net>
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+/sbin/subgraph_metaproxy {
+  #include <abstractions/base>
+
+  /etc/subgraph_metaproxy/subgraph_metaproxy.conf r,
+  /proc/sys/kernel/hostname r,
+  /proc/sys/net/core/somaxconn r,
+
+}
