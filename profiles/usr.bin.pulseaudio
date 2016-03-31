@@ -63,5 +63,4 @@
     /etc/core/sys/asound.conf r,
     /etc/core/sys/secure/pulse.cookie rk,
 
-    #include <local/usr.bin.pulseaudio>
 }
