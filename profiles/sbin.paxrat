@@ -1,4 +1,4 @@
-# Last Modified: Sat Feb  6 00:48:49 2016
+# Last Modified: Fri Apr  1 19:39:27 2016
 #include <tunables/global>
 
 # ------------------------------------------------------------------
@@ -11,6 +11,7 @@
 #
 # ------------------------------------------------------------------
 
+
 /sbin/paxrat {
   #include <abstractions/base>
   #include <abstractions/tor>
@@ -21,5 +22,6 @@
   /etc/paxrat/paxrat_tbl.conf r,
   /proc/sys/kernel/hostname r,
   /proc/sys/net/core/somaxconn r,
+  /usr/bin/dpkg-divert Ux,
 
 }
