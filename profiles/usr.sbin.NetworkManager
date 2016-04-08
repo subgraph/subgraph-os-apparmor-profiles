@@ -1,4 +1,4 @@
-# Last Modified: Sat Feb  6 00:25:07 2016
+# Last Modified: Fri Apr  1 15:38:32 2016
 #include <tunables/global>
 
 # ------------------------------------------------------------------
@@ -10,6 +10,7 @@
 #    License published by the Free Software Foundation.
 #
 # ------------------------------------------------------------------
+
 
 /usr/sbin/NetworkManager {
   #include <abstractions/base>
@@ -27,7 +28,7 @@
   /etc/NetworkManager/dispatcher.d/pre-down.d/ r,
   /etc/NetworkManager/dispatcher.d/pre-up.d/ r,
   /etc/NetworkManager/system-connections/ r,
-  /etc/NetworkManager/system-connections/* r,
+  /etc/NetworkManager/system-connections/* rw,
   /etc/dhcp/dhclient.conf r,
   /etc/hostname r,
   /etc/libnl-3/classid r,
@@ -38,24 +39,25 @@
   /proc/*/fd/ r,
   /proc/*/net/psched r,
   /proc/*/stat r,
-  /run/NetworkManager w,
-  /run/NetworkManager/* w,
-  /run/NetworkManager/private w,
-  /run/NetworkManager/private-dhcp w,
-  /run/dhclient-*.pid rw,
-  /run/network/ifstate r,
-  /run/systemd/users/* r,
-  /run/udev/data/n1 r,
-  /run/udev/data/n2 r,
+  /run/** rw,
   /sbin/dhclient Px,
   /sys/bus/ r,
   /sys/class/ r,
   /sys/class/net/ r,
   /sys/class/rfkill/ r,
   /sys/devices/pci*/*/net/** r,
+  /sys/devices/pci*/*/*/ieee80211/phy0/rfkill0/* r,
+  /sys/devices/pci*/*/*/ieee80211/phy0/uevent r,
+  /sys/devices/pci*/*/*/net/*/dev_id r,
+  /sys/devices/pci*/*/*/net/*/phys_port_id r,
+  /sys/devices/pci*/*/*/net/*/uevent r,
+  /sys/devices/pci*/*/*/uevent r,
   /sys/devices/virtual/net/lo/dev_id r,
   /sys/devices/virtual/net/lo/phys_port_id r,
   /sys/devices/virtual/net/lo/uevent r,
+  /sys/devices/virtual/net/oz0/dev_id r,
+  /sys/devices/virtual/net/oz0/phys_port_id r,
+  /sys/devices/virtual/net/oz0/uevent r,
   /usr/share/gvfs/remote-volume-monitors/ r,
   /usr/share/gvfs/remote-volume-monitors/afc.monitor r,
   /usr/share/gvfs/remote-volume-monitors/goa.monitor r,
