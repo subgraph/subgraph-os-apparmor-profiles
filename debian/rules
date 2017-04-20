@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+
+PROFILES_DIR = $(CURDIR)/profiles
+PROFILES = $(shell find $(PROFILES_DIR) -type f -maxdepth 1)
+PROFILE_NAMES = $(notdir $(PROFILES))
+
+%:
+	dh $@
+
+override_dh_clean:
+	rm -rf tests
+	dh_clean
+
+override_dh_install:
+	dh_install
+	set -ex && for profile in $(PROFILE_NAMES); do \
+	   dh_apparmor --profile-name=$$profile -papparmor-profiles-subgraph; \
+	done
+
+override_dh_auto_test:
+	mkdir -p tests/local
+	set -ex && for profile in $(PROFILE_NAMES); do \
+	   touch tests/local/$$profile; \
+	   /sbin/apparmor_parser --add --skip-cache --skip-kernel-load -I profiles -I tests $(PROFILES_DIR)/$$profile; \
+	done
