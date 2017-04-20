@@ -23,6 +23,8 @@
   /etc/gai.conf r,
   /etc/passwd r,
   /etc/protocols r,
+  /etc/sgfw/ rwk,
+  /etc/sgfw/* rwk,
   /proc/ r,
   /proc/*/fd/ r,
   /proc/*/net/tcp r,
