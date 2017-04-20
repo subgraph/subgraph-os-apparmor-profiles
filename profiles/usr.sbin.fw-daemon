@@ -11,7 +11,7 @@
 #
 # ------------------------------------------------------------------
 
-/usr/sbin/fw-daemon {
+/usr/sbin/fw-daemon flags=(attach_disconnected) {
   #include <abstractions/base>
   #include <abstractions/ubuntu-konsole>
 
@@ -20,6 +20,7 @@
   capability net_raw,
 
   /etc/nsswitch.conf r,
+  /etc/gai.conf r,
   /etc/passwd r,
   /etc/protocols r,
   /proc/ r,
@@ -31,4 +32,6 @@
   /sbin/xtables-multi rix,
   /usr/share/applications/* r,
   /var/lib/sgfw/sgfw_rules rw,
+  /etc/sgfw/ rwk,
+  /etc/sgfw/* rwk,
 }

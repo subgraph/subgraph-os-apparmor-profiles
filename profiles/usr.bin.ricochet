@@ -12,7 +12,7 @@
 # ------------------------------------------------------------------
 
 
-/usr/bin/ricochet {
+/usr/bin/ricochet flags=(attach_disconnected) {
   #include <abstractions/audio>
   #include <abstractions/kde>
   #include <abstractions/nameservice>

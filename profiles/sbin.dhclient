@@ -22,7 +22,7 @@
 # /usr/bin/w                  mrix,
 
 
-/sbin/dhclient {
+/sbin/dhclient flags=(attach_disconnected) {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/nameservice>
@@ -33,19 +33,28 @@
   network packet raw,
 
   /bin/bash mrix,
+  /bin/chown mrix,
+  /bin/chmod mrix,
   /bin/df mrix,
   /bin/grep mrix,
+  /bin/ip mrix,
+  /bin/mv mrix,
   /bin/netstat Px,
   /bin/ps mrix,
+  /bin/rm mrix,
+  /bin/run-parts mrux,
   /bin/sleep mrix,
   /dev/random r,
   /etc/dhclient.conf r,
+  /etc/dhcp/dhclient-exit-hooks.d/* r,
+  /etc/dhcp/dhclient-enter-hooks.d/* r,
+  /etc/resolv.conf.dhclient-new rw,
   /etc/sysconfig/network/dhcp r,
   /etc/sysconfig/network/scripts/functions r,
   /etc/sysconfig/network/scripts/functions.common r,
   /sbin/arp mrix,
   /sbin/dhclient mrix,
-  /sbin/dhclient-script mrpix,
+  /sbin/dhclient-script mrux,
   /sbin/ip mrix,
   /usr/bin/dig mrix,
   /usr/bin/uptime mrix,

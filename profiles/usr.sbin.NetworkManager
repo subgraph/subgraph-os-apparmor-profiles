@@ -12,18 +12,19 @@
 # ------------------------------------------------------------------
 
 
-/usr/sbin/NetworkManager {
+/usr/sbin/NetworkManager flags=(attach_disconnected) {
   #include <abstractions/base>
   #include <abstractions/tor>
   #include <abstractions/ubuntu-konsole>
 
   capability net_admin,
+  capability audit_write,
 
   /dev/rfkill rw,
   /etc/NetworkManager/NetworkManager.conf.subgraph r,
   /etc/NetworkManager/VPN/ r,
   /etc/NetworkManager/conf.d/ r,
-  /etc/NetworkManager/conf.d/oz.conf r,
+  /etc/NetworkManager/conf.d/* r,
   /etc/NetworkManager/dispatcher.d/ r,
   /etc/NetworkManager/dispatcher.d/pre-down.d/ r,
   /etc/NetworkManager/dispatcher.d/pre-up.d/ r,
@@ -31,6 +32,7 @@
   /etc/NetworkManager/system-connections/* rw,
   /etc/dhcp/dhclient.conf r,
   /etc/hostname r,
+  /etc/machine-id r,
   /etc/libnl-3/classid r,
   /etc/network/interfaces r,
   /etc/network/interfaces.d/ r,
@@ -48,16 +50,27 @@
   /sys/devices/pci*/*/net/** r,
   /sys/devices/pci*/*/*/ieee80211/phy0/rfkill0/* r,
   /sys/devices/pci*/*/*/ieee80211/phy0/uevent r,
+  /sys/devices/pci*/*/*/net/*/ r,
+  /sys/devices/pci*/*/*/net/*/ifindex r,
   /sys/devices/pci*/*/*/net/*/dev_id r,
   /sys/devices/pci*/*/*/net/*/phys_port_id r,
   /sys/devices/pci*/*/*/net/*/uevent r,
   /sys/devices/pci*/*/*/uevent r,
+  /sys/devices/virtual/net/lo/ r,
+  /sys/devices/virtual/net/lo/ifindex r,
   /sys/devices/virtual/net/lo/dev_id r,
   /sys/devices/virtual/net/lo/phys_port_id r,
   /sys/devices/virtual/net/lo/uevent r,
   /sys/devices/virtual/net/oz0/dev_id r,
   /sys/devices/virtual/net/oz0/phys_port_id r,
   /sys/devices/virtual/net/oz0/uevent r,
+  /sys/devices/virtual/net/oz0/bridge/stp_state r,
+  /sys/devices/virtual/net/oz0/bridge/priority r,
+  /sys/devices/virtual/net/oz0/bridge/forward_delay r,
+  /sys/devices/virtual/net/oz0/bridge/hello_time r,
+  /sys/devices/virtual/net/oz0/bridge/max_age r,
+  /sys/devices/virtual/net/oz0/bridge/ageing_time r,
+  /sys/devices/virtual/net/oz0/bridge/multicast_snooping r,
   /usr/share/gvfs/remote-volume-monitors/ r,
   /usr/share/gvfs/remote-volume-monitors/afc.monitor r,
   /usr/share/gvfs/remote-volume-monitors/goa.monitor r,

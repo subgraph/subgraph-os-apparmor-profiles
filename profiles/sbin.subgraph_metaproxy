@@ -11,7 +11,7 @@
 #
 # ------------------------------------------------------------------
 
-/sbin/subgraph_metaproxy {
+/sbin/subgraph_metaproxy flags=(attach_disconnected) {
   #include <abstractions/base>
 
   /etc/subgraph_metaproxy/subgraph_metaproxy.conf r,
