@@ -4,7 +4,8 @@ Section: admin
 Priority: extra
 Build-Depends: debhelper (>= 9),
                dh-apparmor,
-               apparmor (>= 2.9.0)
+               apparmor (>= 2.9.0),
+               tor
 Standards-Version: 3.9.8
 Vcs-Browser: https://github.com/subgraph/apparmor-profiles-subgraph.git
 Vcs-Git: https://github.com/subgraph/apparmor-profiles-subgraph.git
