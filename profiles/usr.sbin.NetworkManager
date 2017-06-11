@@ -12,7 +12,7 @@
 # ------------------------------------------------------------------
 
 
-/usr/sbin/NetworkManager flags=(attach_disconnected) {
+/usr/sbin/NetworkManager flags=(attach_disconnected,complain) {
   #include <abstractions/base>
   #include <abstractions/tor>
   #include <abstractions/ubuntu-konsole>
