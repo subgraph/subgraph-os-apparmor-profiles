@@ -29,6 +29,7 @@
   /proc/*/fd/ r,
   /proc/*/net/tcp r,
   /proc/*/net/udp r,
+  /proc/*/net/icmp r,
   /proc/sys/net/core/somaxconn r,
   /run/xtables.lock rwk,
   /sbin/xtables-multi rix,
@@ -36,4 +37,8 @@
   /var/lib/sgfw/sgfw_rules rw,
   /etc/sgfw/ rwk,
   /etc/sgfw/* rwk,
+  /etc/ssl/certs/ca-certificates.crt r,
+  /etc/group r,
+  /{,var/}run/fw-daemon/fwoz.sock w,
+
 }
