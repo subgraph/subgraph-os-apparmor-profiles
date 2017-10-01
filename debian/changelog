@@ -1,3 +1,9 @@
+apparmor-profiles-subgraph (1.4.4-1) unstable; urgency=medium
+
+  * Fix profile for fw-daemon, cleanup
+
+ -- David Mirza Ahmad <dma@subgraph.com>  Sun, 1 Oct 2017 18:46:00 +0000
+
 apparmor-profiles-subgraph (1.4.3-1) unstable; urgency=medium
 
   * Update AppArmor profile for fw-daemon to support new features
