@@ -64,4 +64,7 @@
     /etc/core/sys/asound.conf r,
     /etc/core/sys/secure/pulse.cookie rk,
 
+    /etc/hosts.allow r,
+    /etc/hosts.deny r,
+
 }
